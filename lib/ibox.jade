@@ -3,31 +3,40 @@ template(name='ibox')
 		if hastitle
 			.ibox-title
 				if title
-					h5 #{title}
+						i.fa(class=title_icon).fa-fw #{title}
+						//- h5 #{title}
 				if hastool
 					.ibox-tools
 						if collapse
 							+iboxcollapse
 						if menuItems
-							+iboxdropdown menuItems=menuItems
+							+iboxdropdown 
 						if closelink
 							+iboxcloselink
 		.ibox-content
 			+Template.contentBlock 
 
 
-
-
 template(name='iboxcollapse')
 	a.collapse-link
 		i.fa.fa-chevron-up
 template(name='iboxdropdown')
-	a.dropdown-toggle(data-toggle='dropdown', href='#')
-		i.fa.fa-wrench
-	ul.dropdown-menu.dropdown-user
-		each menuItems
-			li
-				a(href=href) #{text} 
+	if use_actions
+		button.btn.btn-default.btn-xs.dropdown-toggle(type="button" data-toggle="dropdown") Actions
+			span.caret
+		ul.dropdown-menu.pull-right(role="menu")
+			each menuItems
+				li
+					a(id=id href=href) #{text} 
+	
+	else
+		a.dropdown-toggle(data-toggle='dropdown', href='#')
+			i.fa.fa-wrench
+
+		ul.dropdown-menu.dropdown-user
+			each menuItems
+				li
+					a(id=id href=href) #{text} 
 
 template(name='iboxcloselink')
 	a.close-link

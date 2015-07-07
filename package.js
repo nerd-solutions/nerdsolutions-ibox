@@ -1,6 +1,6 @@
 Package.describe({
-  name: 'nerd.solutions:ibox',
-  version: '0.0.1',
+  name: 'nerdsolutions:ibox',
+  version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'Ibox controls',
   // URL to the Git repository containing the source code for this package.
@@ -14,14 +14,14 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
   api.use([
     'ui',
-    'twbs:bootstrap',
+    'twbs:bootstrap@3.3.5',
     'templating',
     'underscore',
     'coffeescript',
     'jquery',
     'less',
-    'fortawesome:fontawesome',
-    'mquandalle:jade'
+    'fortawesome:fontawesome@4.3.0',
+    'mquandalle:jade@0.4.3'
     ],'client');
 
   api.addFiles([
@@ -39,6 +39,6 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('nerd.solutions:ibox');
+  api.use('nerdsolutions:ibox');
   api.addFiles('ibox-tests.js');
 });

@@ -1,7 +1,7 @@
 IBOX={}
 
 $(document).ready ->
-	IBOX.DEBUG=IBOX.DEBUG||false
+	IBOX.DEBUG=IBOX.DEBUG||true
 
 
 Template.iboxcollapse.rendered =->
@@ -29,6 +29,9 @@ Template.iboxcloselink.rendered =->
 		console.log 'collapse'	 
 		return
 
+Template.ibox.rendered=->
+	if IBOX.DEBUG
+		console.log 'ibox rendered'
 
 Template.ibox.helpers
 	hastitle:->
@@ -37,4 +40,4 @@ Template.ibox.helpers
 
 	hastool:->
 		console.log 'hastool'
-		@collapse? or @collapse? or @dropdown?
+		@collapse? or @collapse? or @dropdown? or @menuItems?
