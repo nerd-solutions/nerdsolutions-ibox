@@ -1,0 +1,34 @@
+template(name='ibox')
+	.ibox
+		if hastitle
+			.ibox-title
+				if title
+					h5 #{title}
+				if hastool
+					.ibox-tools
+						if collapse
+							+iboxcollapse
+						if menuItems
+							+iboxdropdown menuItems=menuItems
+						if closelink
+							+iboxcloselink
+		.ibox-content
+			+Template.contentBlock 
+
+
+
+
+template(name='iboxcollapse')
+	a.collapse-link
+		i.fa.fa-chevron-up
+template(name='iboxdropdown')
+	a.dropdown-toggle(data-toggle='dropdown', href='#')
+		i.fa.fa-wrench
+	ul.dropdown-menu.dropdown-user
+		each menuItems
+			li
+				a(href=href) #{text} 
+
+template(name='iboxcloselink')
+	a.close-link
+		i.fa.fa-times
